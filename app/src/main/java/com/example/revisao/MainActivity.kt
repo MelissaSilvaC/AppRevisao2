@@ -21,11 +21,16 @@ class MainActivity : AppCompatActivity() {
         val btnCadastrar: Button = findViewById(R.id.btnCadastrar)
 
         btnCadastrar.setOnClickListener {
-            Toast.makeText(this, "Nome: " + txtNome.text.toString(), Toast.LENGTH_LONG).show() }
+            Toast.makeText(this, "Nome: " + txtNome.text.toString(), Toast.LENGTH_SHORT).show()
             val intent = Intent(this, Resultado::class.java)
+
+            intent.putExtra("nome", txtNome.text.toString())
+            intent.putExtra("endereco", txtEndereco.text.toString())
+            intent.putExtra("bairro", txtBairro.text.toString())
+            intent.putExtra("cep", txtCep.text.toString())
+            intent.putExtra("cidade", txtCidade.text.toString())
+
             startActivity(intent)
-
-
-
+        }
     }
 }
